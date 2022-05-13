@@ -18,7 +18,10 @@ router.post('/add-customer',(req,res,next)=>{
 
 router.get('/all', (req, res, next) => {
   customerModel.find({}, (err, data) => {
-    if (err) return next(err)
+    if (err){
+console.log(err)
+    return next(err)
+    }
     else res.json(data)
   })
 })
