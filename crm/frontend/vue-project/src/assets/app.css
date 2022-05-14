@@ -1,6 +1,4 @@
-#app {
-  height: 100vh;
-}
+
 #top{
     width: 100%;
     display: flex;
@@ -18,22 +16,30 @@ nav {
   display: grid;
   grid-template-columns: 150px 1fr;
   border: none;
+   
   border-radius: 5px;
 padding:0;
   background-color:white;
 }
-.container div {
-  overflow: auto;
+
+
+#list{
+border-right: solid 1px;
+  height: 60vh;
+  overflow-y: auto;
+
 }
 #actions{
     display: inline-block;
 }
 
 #details {
-padding: 10px;
+padding: 20px;
+
+
 }
 .wrapper {
-  height: 100vh;
+  height: 90vh;
   display: flex;
   align-items: center;
 }
@@ -48,21 +54,32 @@ p{
     margin-bottom: 20px;
 }
 li {
-  height: 60px;
-  font-size: 25px;
+
+
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
-#people li:hover {
+
+#people{
+  padding:20px 10px;
+  font-size: 25px;
+  border-bottom: rgb(225, 220, 220) solid 1px;
+}
+li:hover {
+ /* box-shadow: 10px 2px 3px gray; */
+}
+ li.active{
   background-color: rgba(0, 204, 255, 0.301);
+  box-shadow: 2px 2px 3px gray;
 }
- #people li.active {
-    background-color: #87e911;
-  }
 ul {
   list-style: none;
   padding: 0;
+}
+[v-cloak] {
+  display: none;
 }
 @media (min-width: 900px) {
   .container {

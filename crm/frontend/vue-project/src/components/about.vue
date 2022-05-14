@@ -7,10 +7,10 @@
        </div>
       </div>
  <div id="info">
-<p>Shary Ramezani</p>
-<p>231-342-4411</p>
-<p>sr71@gmail.com</p>
-<p>Added On 03/23/1341</p>
+<p></p>
+<p></p>
+<p></p>
+<p>Added On</p>
        </div>
 </template>
 
