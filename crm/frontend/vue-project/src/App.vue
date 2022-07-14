@@ -10,18 +10,21 @@ export default {
     return {
       customers: [],
       selectedCustomer: null,
-      cID:"",
+      cID: "",
       customerName: "",
       customerFName: "",
-      customerLName:"",
-      dateAdded:"",
-      cEmail:"",
-      cPhone:"",
+      customerLName: "",
+      dateAdded: "",
+      cEmail: "",
+      cPhone: "",
       selected: false,
     };
   },
   provide() {
-    return { selectedCustomer: this.selectedCustomer };
+    return {
+      selectedCustomer: this.selectedCustomer,
+      customers: this.customers,
+    };
   },
   methods: {
     activateCustomer(customerId) {
@@ -30,10 +33,10 @@ export default {
       );
       this.customerName = `${this.selectedCustomer.fName} ${this.selectedCustomer.lName}`;
       this.customerFName = this.selectedCustomer.fName;
-       this.cID = this.selectedCustomer.cid;
-       this.cPhone = this.selectedCustomer.phone;
-       this.cEmail = this.selectedCustomer.email;
-       this.dateAdded = this.selectedCustomer.dateAdded.slice(0,10);
+      this.cID = this.selectedCustomer.cid;
+      this.cPhone = this.selectedCustomer.phone;
+      this.cEmail = this.selectedCustomer.email;
+      this.dateAdded = this.selectedCustomer.dateAdded.slice(0, 10);
     },
   },
   created() {
@@ -62,17 +65,27 @@ export default {
     </nav>
   </div>
   <div class="wrapper">
-    <div class="container">
-     
-        <customer-picker
-          @select-customer="activateCustomer"
-          :customers="customers"
-          :selectedCustomer="selectedCustomer"
-          :customerFName="customerFName"
-        ></customer-picker>
-      
+    <div class="empty-arr" v-if="customers.length == 0">
+      <p>No Customers Found</p>
+      <button class="btn btn-success mt-3">Add Customer</button>
+    </div>
+    <div class="container" v-else>
+      <customer-picker
+        @select-customer="activateCustomer"
+        :customers="customers"
+        :selectedCustomer="selectedCustomer"
+        :customerFName="customerFName"
+      ></customer-picker>
+
       <div class="details">
-        <about v-if="selectedCustomer" :CName="customerName" :cID="cID" :cEmail="cEmail" :cPhone="cPhone" :dateAdded="dateAdded"></about>
+        <about
+          v-if="selectedCustomer"
+          :CName="customerName"
+          :cID="cID"
+          :cEmail="cEmail"
+          :cPhone="cPhone"
+          :dateAdded="dateAdded"
+        ></about>
         <div v-else class="no-choice">Select a Customer</div>
       </div>
     </div>
