@@ -1,7 +1,14 @@
+#app {
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+}
 #top {
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+h1 {
+  font-size: 32px;
 }
 button:first-child {
   margin-right: 10px;
@@ -9,11 +16,31 @@ button:first-child {
 nav {
   padding: 20px;
 }
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 400;
+}
+form {
+  width: 50vw;
+  margin: auto;
+}
+fieldset.form-control {
+  padding: 20px;
+}
 .container {
   height: 60vh;
-  width: 60vw;
+  width: 65vw;
   display: grid;
-  grid-template-columns: 250px 1fr;
+  grid-template-columns: 280px 1fr;
   gap: 20px;
   border: none;
   border-radius: 5px;
@@ -21,7 +48,13 @@ nav {
   background-color: white;
   box-shadow: 2px 2px 5px 5px #27272754;
   overflow: auto;
-
+}
+.c1 {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  
+  flex-direction: column;
 }
 .no-choice {
   font-size: 30px;
@@ -32,12 +65,13 @@ nav {
 }
 #wrapper {
   display: flex;
-
+  height: 50vh;
   align-items: center;
+  justify-content: center;
+  width: 100vw;
 }
 .list {
   max-height: 100%;
- 
 }
 #actions {
   display: inline-block;
@@ -45,18 +79,31 @@ nav {
 
 #details {
   padding: 20px;
- 
 }
 .wrapper {
   height: 90vh;
   display: flex;
   align-items: center;
+ 
+}
+.btn {
+  background-color: #10403b;
+  color: white;
+}
+
+.btn.btn-danger {
+  background-color: red;
+}
+.btn:hover {
+  background-color: #4C5958;
+  color: #bfbfbf;
 }
 body {
-  background-color: rgb(154, 68, 83);
+  background-color: #127369;
 }
 h2 {
   display: inline-block;
+
 }
 p {
   font-size: 16px;
@@ -69,12 +116,12 @@ li {
   cursor: pointer;
 }
 
-.data{
+.data {
   display: block;
   margin-bottom: 10px;
   font-size: 14px;
 }
-.data span{
+.data span {
   color: lightslategray;
   display: block;
   font-size: 16px;
@@ -84,10 +131,14 @@ li {
   padding: 20px 10px;
   font-size: 25px;
   border-bottom: rgb(225, 220, 220) solid 1px;
- 
+  border-radius: 5px;
+}
+#people:hover{
+  background-color: #bfbfbf3c;
+  transition: all 0.1s ease;
 }
 
-.empty-arr{
+.empty-arr {
   height: 40vh;
   width: 40vw;
   display: flex;
@@ -97,15 +148,17 @@ li {
   background-color: white;
   flex-direction: column;
   border-radius: 5px;
+  text-align: center;
 }
-.empty-arr p{
+.empty-arr p {
   font-size: 25px;
 }
 .active {
-  background-color:rgba(195, 208, 241, 0.397);
-  box-shadow: 2px 2px 3px  gray ;
+  background-color: #8aa6a3;
+  box-shadow: 2px 2px 3px gray;
   transition: all 0.15s ease;
   transition: background-color 0.175s ease-in-out;
+  pointer-events: none;
 }
 ul {
   list-style: none;
@@ -114,37 +167,40 @@ ul {
 [v-cloak] {
   display: none;
 }
+#add{
+  width: 150px;
+  margin: auto;
+}
 @media (max-width: 800px) {
   .container {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     height: 70vh;
     width: 80vw;
-    gap:0;
+    max-width: 550px;
+    gap: 0;
   }
-  .list{
+  .list {
     overflow-x: auto;
     display: flex;
-   height: 100px;
+    height: 100px;
   }
-  #people{
+  #people {
     font-size: 20px;
-
   }
-  .details{
-  align-items:start;
-justify-content: end;  
-}
-.active{
-  box-shadow: -2px -2px 3px gray;
-}
-}
-@media(min-width:801px){
-  .list{
-    overflow-y: auto;    
+  .details {
+    align-items: start;
+    justify-content: end;
   }
-  #info{
+  .active {
+    box-shadow: -2px -2px 3px gray;
+  }
+}
+@media (min-width: 801px) {
+  .list {
+    overflow-y: auto;
+  }
+  #info {
     margin-top: 5px;
   }
- 
 }

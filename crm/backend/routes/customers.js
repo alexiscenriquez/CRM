@@ -58,14 +58,6 @@ router.delete('/delete/:cid', (req, res, next )=> {
     }
   })
 })
-router.post('/add-customer/:cid',(req,res,body)=>{
-    customerModel.create(req.body,(err,data)=>{
-        if(err) return next(err)
-        else {
-            console.log(data)
-            res.send('New customer added')
-        }
-    })
-})
+
 
 module.exports=router;

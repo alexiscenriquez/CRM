@@ -1,6 +1,6 @@
 <template>
  
-      <div id="top" class="mt-4"> <h2>{{CName}}</h2>
+      <div id="top" class="mt-3"> <h2>{{CName}}</h2>
        <div id="actions">
            <button class="btn btn-success">Edit</button>
           <button class="btn btn-danger" @click="deleteCustomer(cID)">Delete</button>
