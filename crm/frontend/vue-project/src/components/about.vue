@@ -1,21 +1,27 @@
 <template>
- 
-      <div id="top" class="mt-3"> <h2>{{CName}}</h2>
-       <div id="actions">
-           <button class="btn btn-success">Edit</button>
-          <button class="btn btn-danger" @click="deleteCustomer(cID)">Delete</button>
-       </div>
-      </div>
- <div id="info">
- <div class="data"><span>Customer ID</span> {{cID}}</div>
-<div class="data"><span>Email</span>{{cEmail}}</div>
-<div class="data"><span>Phone Number</span>{{cPhone}}</div>
-<div class="data"><span>Added On</span>{{dateAdded}}</div>
-       </div>
+  <div id="top" class="mt-3">
+    <h2>{{ CName }}</h2>
+    <div id="actions">
+      <button class="btn btn-success"><router-link :to="{name:'edit',params:{id:cID}}">Edit</router-link></button>
+      <button class="btn btn-danger" @click="deleteCustomer(cID)">
+        Delete
+      </button>
+    </div>
+  </div>
+  <div id="info">
+    <div class="data"><span>Customer ID</span> {{ cID }}</div>
+    <div class="data">
+      <span>Email<a target="blank" v-bind:href="`mailto:${cEmail}`"><span class="email">{{ cEmail }}</span></a></span
+      >
+    </div>
+    <div class="data"><span>Phone Number</span>{{ cPhone }}</div>
+    <div class="data"><span>Added On</span>{{ dateAdded }}</div>
+  </div>
 </template>
 
 <script>
 import axios from "axios";
+
 export default{
        props:['cID','CName','dateAdded','cPhone','cEmail'],
        inject:['selectedCustomer','customers'],
@@ -37,11 +43,33 @@ let apiURL=  `http://localhost:8080/customers/delete/${id}`
             console.log(error);
           });  
           location.reload()      
-       }}
+       }},
+    
+
+      }
+//        sendEmail(){
+       
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+// const msg = {
+//   to: this.cEmail, // Change to your recipient
+//   from: 'test@example.com', // Change to your verified sender
+//   subject: '',
+//   text: '',
+//   html: '',
+// }
+// sgMail
+//   .send(msg)
+//   .then(() => {
+//     console.log('Email sent')
+//   })
+//   .catch((error) => {
+//     console.error(error)
+//   })
+//        }
        }
-}
+
 </script>
 
 <style>
-@import '../assets/app.css';
+@import "../assets/app.css";
 </style>

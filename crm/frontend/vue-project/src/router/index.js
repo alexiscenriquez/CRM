@@ -14,7 +14,10 @@ const router = createRouter({
       name: "newcustomer",
       component: ()=>import("../views/newCustomer.vue"),
     },
-  ],
+    {path:"/edit",
+    name:"edit",
+    component:()=>import("../views/editCustomer.vue")
+    }],
 });
 
 export default router;

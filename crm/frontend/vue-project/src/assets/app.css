@@ -10,6 +10,7 @@
 h1 {
   font-size: 32px;
 }
+
 button:first-child {
   margin-right: 10px;
 }
@@ -29,7 +30,7 @@ h1 {
   text-align: center;
   font-weight: 400;
 }
-form {
+.customer {
   width: 50vw;
   margin: auto;
 }
@@ -53,7 +54,7 @@ fieldset.form-control {
   width: 100vw;
   display: flex;
   justify-content: center;
-  
+margin-top: 30px;
   flex-direction: column;
 }
 .no-choice {
@@ -76,7 +77,6 @@ fieldset.form-control {
 #actions {
   display: inline-block;
 }
-
 #details {
   padding: 20px;
 }
@@ -93,6 +93,10 @@ fieldset.form-control {
 
 .btn.btn-danger {
   background-color: red;
+}
+
+.btn.btn-danger:hover{
+  background-color: rgb(233, 3, 3);
 }
 .btn:hover {
   background-color: #4C5958;
@@ -125,6 +129,10 @@ li {
   color: lightslategray;
   display: block;
   font-size: 16px;
+}
+span.email{
+  color: blue;
+  cursor: pointer;
 }
 
 #people {
@@ -159,6 +167,11 @@ li {
   transition: all 0.15s ease;
   transition: background-color 0.175s ease-in-out;
   pointer-events: none;
+}
+.form-actions{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 ul {
   list-style: none;

@@ -1,7 +1,7 @@
 <template>
-  <h1 class="mt-4">Add a New Customer</h1>
+  <h1 class="mt-4">Edit Customer</h1>
   <div id="wrapper">
-    <form class="mt-4 customer" @submit.prevent="addCustomer">
+    <form class="mt-4 customer" @submit.prevent="editCustomer">
       <fieldset class="form-control">
         <div class="mb-3">
           <div class="col mb-3">
@@ -31,15 +31,16 @@
             />
           </div>
         </div>
-        <div class="form-actions"><button class="btn">Add</button> <a href="/" class="btn btn-danger">Cancel</a></div>
+        <div class="form-actions"><button class="btn">Edit</button> <a href="/" class="btn btn-danger">Cancel</a></div>
       </fieldset>
     </form>
   </div>
 </template>
 <script>
-import axios from "axios";
-export default {
-  data() {
+import axios from "axios"
+export default{
+    
+ data() {
     return {
       customers: {
         cid: "",
@@ -51,28 +52,23 @@ export default {
       },
     };
   },
-
-  methods: {
-    addCustomer() {
-      let apiURL = "http://localhost:8080/customers/add-customer";
-      axios
-        .post(apiURL, this.customers)
-        .then(() => {
-          this.$router.push("/");
-          this.customers = {
-            cid: "",
-            fName: "",
-            lName: "",
-            phone: "",
-            email: "",
-            dateAdded: "",
-          };
+  created(){
+let apiURL=`http://localhost:8080/customers/find/${this.$route.params.id}`
+axios.get(apiURL).then((res)=>{
+    this.customers=res.data[0]
+})
+},
+  methods:{
+    editCustomer(){
+        let APIURL=`http://localhost:8080/customers/update/${this.$route.params.id}`
+        axios.put(APIURL,this.customers)
+        .then((res)=>{
+            console.log(res);
+            this.$router.push("/")
+        }).catch((error)=>{
+            console.log(error)
         })
-        .catch((error) => {
-          this.errors.push("Error in form submission. " + error.response.data);
-          console.log(error);
-        });
-    },
-  },
-};
+    }
+  }
+}
 </script>
