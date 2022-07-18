@@ -44,28 +44,7 @@ let apiURL=  `http://localhost:8080/customers/delete/${id}`
           });  
           location.reload()      
        }},
-    
-
       }
-//        sendEmail(){
-       
-// sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-// const msg = {
-//   to: this.cEmail, // Change to your recipient
-//   from: 'test@example.com', // Change to your verified sender
-//   subject: '',
-//   text: '',
-//   html: '',
-// }
-// sgMail
-//   .send(msg)
-//   .then(() => {
-//     console.log('Email sent')
-//   })
-//   .catch((error) => {
-//     console.error(error)
-//   })
-//        }
        }
 
 </script>
