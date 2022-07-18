@@ -1,1 +1,1 @@
-web: node crm/backend/app.js
+web: node app.js
