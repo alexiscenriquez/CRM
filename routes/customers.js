@@ -1,8 +1,9 @@
 
-const customerModel = require('../model/customer')
+// const customerModel = require('../model/customer')
 const express = require('express');
 const  router = express.Router()
-
+const path=require('path')
+const customerModel=require(path.join(__dirname,'../model/customer'))
 router.post('/add-customer',(req,res,next)=>{
     customerModel.create(req.body,(err,data)=>{
         if(err) {
