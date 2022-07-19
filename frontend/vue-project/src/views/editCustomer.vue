@@ -53,14 +53,14 @@ export default{
     };
   },
   created(){
-let apiURL=`http://localhost:8080/customers/find/${this.$route.params.id}`
+let apiURL=`https://customermgmt.herokuapp.com/customers/find/${this.$route.params.id}`
 axios.get(apiURL).then((res)=>{
     this.customers=res.data[0]
 })
 },
   methods:{
     editCustomer(){
-        let APIURL=`http://localhost:8080/customers/update/${this.$route.params.id}`
+        let APIURL=`https://customermgmt.herokuapp.com/customers/update/${this.$route.params.id}`
         axios.put(APIURL,this.customers)
         .then((res)=>{
             console.log(res);

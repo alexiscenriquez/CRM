@@ -54,7 +54,7 @@ export default {
 
   methods: {
     addCustomer() {
-      let apiURL = "http://localhost:8080/customers/add-customer";
+      let apiURL = "https://customermgmt.herokuapp.com/customers/add-customer";
       axios
         .post(apiURL, this.customers)
         .then(() => {

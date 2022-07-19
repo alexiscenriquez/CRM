@@ -69,7 +69,7 @@ export default{
     },
   },
   created() {
-    let apiURL = `http://localhost:8080/customers/all`;
+    let apiURL = `https://customermgmt.herokuapp.com/customers/all`;
     axios
       .get(apiURL)
       .then((res) => {

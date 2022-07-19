@@ -27,7 +27,7 @@ export default{
        inject:['selectedCustomer','customers'],
        methods:{
        deleteCustomer(id){
-let apiURL=  `http://localhost:8080/customers/delete/${id}`
+let apiURL=  `https://customermgmt.herokuapp.com/customers/delete/${id}`
               
       let indexOfArrayItem = this.customers.findIndex(
         (i) => i.cid === id
