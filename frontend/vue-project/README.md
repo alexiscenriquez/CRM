@@ -12,14 +12,13 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup - Backend
 ```sh
-cd crm/backend
 npm install
 node app.js
 ```
 
 ## Project Setup - Front End
 ```sh
-cd crm/frontend/vue-project/src
+cd frontend/vue-project/src
 npm install
 ```
 
