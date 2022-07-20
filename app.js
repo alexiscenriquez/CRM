@@ -6,7 +6,7 @@ const req=require("request");
 const app = express();
 const axios=require("axios")
 const path=require('path')
-
+const serveStatic=require('serve-static')
 require("dotenv").config();
 let customerRouter=require('./routes/customers')
 mongoose
@@ -21,7 +21,8 @@ mongoose
 app.use(cors());
 app.use(express.json()); //access request body as req.body
 app.use(morgan("dev")); //enable incoming request logging in dev mode
-
+app.use(serveStatic(__dirname + "/dist"))
+ 
 app.use('/customers',customerRouter)
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
@@ -34,7 +35,3 @@ app.use(function (err, res) {
   res.status(err.statusCode).send(err.message);
 });
 
-app.use(express.static(path.join(__dirname, "/dist")))
-app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/dist', 'index.html'))
-})
